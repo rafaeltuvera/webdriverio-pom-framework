@@ -8,12 +8,12 @@ class ElementActions{
     }
 
     setValue(webElement, value){
-        waitForElementPresent(webElement);
+        this.waitForElementPresent(webElement);
         webElement.setValue(value);
     }
 
     click(webElement){
-        waitForElementPresent(webElement);
+        this.waitForElementPresent(webElement);
         webElement.click();
     }
 
@@ -22,8 +22,18 @@ class ElementActions{
     }
 
     getText(webElement){
-        waitForElementPresent(webElement);
+        this.waitForElementPresent(webElement);
         return webElement.getText();
+    }
+
+    moveToElement(webElement){
+        this.waitForElementPresent(webElement);
+        webElement.moveTo();
+    }
+
+    scrollIntoElement(webElement){
+        webElement.isDisplayedInViewport();
+        webElement.scrollIntoView();
     }
 
 

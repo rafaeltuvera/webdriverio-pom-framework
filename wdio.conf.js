@@ -1,3 +1,5 @@
+const url = require('../webdriverio-pom/util/Url');
+
 exports.config = {
     //
     // ====================
@@ -17,7 +19,8 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        //'./test/specs/**/*.js'
+        './test/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -89,7 +92,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: '',
+    baseUrl: url.URL,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -174,8 +177,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function () {
+        browser.url('');
+        browser.maximizeWindow();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -200,6 +205,7 @@ exports.config = {
         global.assert = chai.assert
         global.should = chai.should
         global.expect = chai.expect
+      
     },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
