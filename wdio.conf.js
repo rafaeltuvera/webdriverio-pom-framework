@@ -180,6 +180,7 @@ exports.config = {
     before: function () {
         browser.url('');
         browser.maximizeWindow();
+        browser.deleteAllCookies();
     },
     /**
      * Runs before a WebdriverIO command gets executed.
