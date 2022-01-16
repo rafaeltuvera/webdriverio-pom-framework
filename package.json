@@ -4,7 +4,8 @@
   "description": "webdriverio page object model framework",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "sanity": "./node_modules/.bin/wdio wdio.conf.js --suite sanity"
   },
   "author": "Rafael Tuvera",
   "license": "ISC",

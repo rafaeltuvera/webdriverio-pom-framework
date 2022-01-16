@@ -18,5 +18,11 @@ describe("Login in page test", function(){
         
     })
 
+    it("Verify Logout success", function(){
+        homePage.logOutFromApp();
+        expect(browser.getAlertText()).equals('You Have Succesfully Logged Out!!');
+        browser.acceptAlert();
+    })
+
 
 })
